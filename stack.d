@@ -14,21 +14,24 @@ module dranges.stack;
 
 ///
 struct Stack(T) {
-    T[] data;
-    size_t index;
-
+	@disable this();
+    
+	T[] data;
+	private size_t index;
+	
     ///
-    this(int initialLength = 1000) {
-        data.length = initialLength;
+	this(int initialLength = 1000) {
+    	data.length = initialLength;
         index = 0;
     }
 
     ///
     void push(T value) {
-        if (index == data.length) {
+		if (index == data.length) {
             data.length = data.length*2;
         }
-        data[index] = value;
+
+		data[index] = value;
         index++;
     }
 
